@@ -60,7 +60,7 @@ const CardInfoPage = () => {
                 }
                 setCard(newCard);
             } catch (err) {
-                console.log("Error From Axios:", err);
+                console.log("Error From Axios:", err.response.message);
             }
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps

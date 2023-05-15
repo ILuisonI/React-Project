@@ -35,7 +35,8 @@ const LoginPage = () => {
 
     const loggedIn = useLoggedIn();
 
-    const handleBtnClick = async () => {
+    const handleBtnClick = async (ev) => {
+        ev.preventDefault();
         try {
             const joiResponse = validateLoginSchema(inputState);
             setInputsErrorsState(joiResponse);
@@ -49,7 +50,7 @@ const LoginPage = () => {
             navigate(ROUTES.HOME);
         } catch (err) {
             toast.error('Username And/Or Password Are Incorrect!');
-            console.log("Login Error", err);
+            console.log("Login Error", err.response.data);
         }
     };
 
@@ -86,71 +87,73 @@ const LoginPage = () => {
                     Login
                 </Typography>
                 <Box component="div" noValidate sx={{ mt: 3 }}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <TextField
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                onChange={handleInputChange}
-                                value={inputState.email}
-                            />
-                            {
-                                inputsErrorsState && inputsErrorsState.email && (
-                                    <Alert severity="warning">
-                                        {inputsErrorsState.email.map(item =>
-                                            <div key={"email-errors" + item}>{item}.</div>
-                                        )}
-                                    </Alert>
-                                )}
+                    <form onSubmit={handleBtnClick}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                    onChange={handleInputChange}
+                                    value={inputState.email}
+                                />
+                                {
+                                    inputsErrorsState && inputsErrorsState.email && (
+                                        <Alert severity="warning">
+                                            {inputsErrorsState.email.map(item =>
+                                                <div key={"email-errors" + item}>{item}.</div>
+                                            )}
+                                        </Alert>
+                                    )}
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="new-password"
+                                    onChange={handleInputChange}
+                                    value={inputState.password}
+                                />
+                                {
+                                    inputsErrorsState && inputsErrorsState.password && (
+                                        <Alert severity="warning">
+                                            {inputsErrorsState.password.map(item =>
+                                                <div key={"password-errors" + item}>{item}.</div>
+                                            )}
+                                        </Alert>
+                                    )}
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Button color="error" onClick={cancelBtnClick} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                                    Cancel
+                                </Button>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Button color="warning" onClick={resetAll} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                                    <RestartAltIcon />
+                                </Button>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="new-password"
-                                onChange={handleInputChange}
-                                value={inputState.password}
-                            />
-                            {
-                                inputsErrorsState && inputsErrorsState.password && (
-                                    <Alert severity="warning">
-                                        {inputsErrorsState.password.map(item =>
-                                            <div key={"password-errors" + item}>{item}.</div>
-                                        )}
-                                    </Alert>
-                                )}
+                        <Button type="submit" onClick={handleBtnClick} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                            Sign In
+                        </Button>
+                        <Grid container justifyContent="flex-end">
+                            <Grid item>
+                                <Link style={{ textDecoration: `none`, color: "inherit" }} to={ROUTES.REGISTER}>
+                                    <Typography variant="body2">
+                                        Don't have an account? Sign Up
+                                    </Typography>
+                                </Link>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={6}>
-                            <Button color="error" onClick={cancelBtnClick} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                                Cancel
-                            </Button>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Button color="warning" onClick={resetAll} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                                <RestartAltIcon />
-                            </Button>
-                        </Grid>
-                    </Grid>
-                    <Button onClick={handleBtnClick} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                        Sign In
-                    </Button>
-                    <Grid container justifyContent="flex-end">
-                        <Grid item>
-                            <Link style={{ textDecoration: `none`, color: "inherit" }} to={ROUTES.REGISTER}>
-                                <Typography variant="body2">
-                                    Don't have an account? Sign Up
-                                </Typography>
-                            </Link>
-                        </Grid>
-                    </Grid>
+                    </form>
                 </Box>
             </Box>
         </Container>

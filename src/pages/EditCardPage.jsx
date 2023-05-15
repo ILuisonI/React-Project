@@ -83,7 +83,7 @@ const EditCardPage = () => {
                 }
                 setInputState(newInputState);
             } catch (err) {
-                console.log("Error From Axios:", err);
+                console.log("Error From Axios:", err.response.message);
             }
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -114,6 +114,7 @@ const EditCardPage = () => {
             }
         } catch (err) {
             toast.error('Oops');
+            console.log("Save Error:", err.response.message);
         }
     }
 

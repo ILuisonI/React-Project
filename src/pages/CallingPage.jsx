@@ -5,7 +5,7 @@ const CallingPage = () => {
     const { phone } = useParams();
 
     return (
-        <Box sx={{ position: "fixed", left: "50vw", top: "50vh" }}>
+        <Box sx={{ position: "fixed", left: "47vw", top: "47vh" }}>
             <Grid
                 container
                 spacing={0}

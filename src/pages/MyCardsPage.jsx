@@ -25,7 +25,7 @@ const MyCardsPage = () => {
                 filterFunc(data);
             })
             .catch((err) => {
-                console.log("Err From Axios", err);
+                console.log("Error From Axios:", err.response.message);
                 toast.error("Oops!");
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -60,7 +60,7 @@ const MyCardsPage = () => {
             await axios.delete("cards/" + id);
             setCardsArr((newCardsArr) => newCardsArr.filter(item => item._id !== id));
         } catch (err) {
-            console.log("Error When Deleting:", err.response.data);
+            console.log("Delete Error:", err.response.data);
             toast.error('Oops');
         }
     };
@@ -69,7 +69,7 @@ const MyCardsPage = () => {
         try {
             await axios.patch(`/cards/card-like/${id}`)
         } catch (err) {
-            console.log("Error", err.response.data);
+            console.log("Like Error:", err.response.data);
         }
     };
 
