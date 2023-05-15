@@ -96,6 +96,10 @@ const CardInfoPage = () => {
         }
     };
 
+    const handleCallClick = () => {
+        navigate(`/call/${card.phone}`);
+    };
+
     if (!card) {
         return <CircularProgress sx={{ position: "fixed", left: "50vw", top: "50vh" }} />;
     }
@@ -220,7 +224,7 @@ const CardInfoPage = () => {
                                 <Typography sx={{
                                     marginLeft: "auto"
                                 }}>
-                                    <IconButton aria-label="call" color="success">
+                                    <IconButton aria-label="call" color="success" onClick={handleCallClick}>
                                         <PhoneIcon />
                                     </IconButton>
                                     {
