@@ -404,7 +404,6 @@ const ProfilePage = () => {
                         <Grid item xs={12} sm={6}>
                             <TextField
                                 fullWidth
-                                required
                                 id="zipCode"
                                 label="Zip Code"
                                 name="zipCode"

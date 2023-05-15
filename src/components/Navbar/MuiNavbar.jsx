@@ -115,7 +115,7 @@ const MuiNavbar = () => {
           </Typography>
 
           {/* main navbar */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box paddingLeft={"20px"} sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <NavLinkComponent {...aboutPage} />
             {
               isAdmin &&

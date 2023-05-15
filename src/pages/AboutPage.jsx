@@ -32,7 +32,7 @@ const AboutPage = () => {
             <hr />
             <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/HomePage.png" />
             <h4>This is the home page where you can see all the business cards.
-                <br />If you click on the card you will be moved to the business page where you can see all the information on the business.
+                <br />If you click on the card you will be moved to the card info page where you can see all the information on the business.
                 <br />If you press on the call button you will be moved to a calling page using the business number.
                 <br />A like button will show up if you are logged in.
                 <br />An edit button will show up if the card you are viewing is your card.
@@ -58,6 +58,9 @@ const AboutPage = () => {
             <hr />
             <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/Profile.png" />
             <h4>This is the profile page where you can update your information.</h4>
+            <hr />
+            <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/CardInfo.png" />
+            <h4>This is the card info page where you can see all the business information.</h4>
             <hr />
         </Box>
     );
