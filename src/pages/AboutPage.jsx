@@ -56,6 +56,9 @@ const AboutPage = () => {
             <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/Login.png" />
             <h4>This is the login page where you can log in to the website.</h4>
             <hr />
+            <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/Profile.png" />
+            <h4>This is the profile page where you can update your information.</h4>
+            <hr />
         </Box>
     );
 };

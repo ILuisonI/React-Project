@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { authActions } from "../store/auth";
 import jwt_decode from "jwt-decode";
-import axios from "axios";
 
 const useLoggedIn = () => {
     const dispatch = useDispatch();
@@ -12,7 +11,6 @@ const useLoggedIn = () => {
                 dispatch(authActions.logout());
                 return;
             }
-            await axios.get("/users/userInfo");
             const payload = jwt_decode(token);
             dispatch(authActions.login(payload));
         } catch (err) {

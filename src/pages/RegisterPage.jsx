@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useEffect, useState } from "react";
 import validateRegisterSchema from "../validation/registerValidation";
-import { Alert } from "@mui/material/";
+import { Alert, InputAdornment } from "@mui/material/";
 import { Link, useNavigate } from "react-router-dom";
 import ROUTES from "../routes/ROUTES";
 import axios from "axios";
@@ -101,11 +101,11 @@ const RegisterPage = () => {
                     city: inputState.city,
                     street: inputState.street,
                     houseNumber: inputState.houseNumber,
-                    zipCode: inputState.zipCode,
+                    zipCode: inputState.zipCode ? inputState.zipCode : 1,
                     biz: inputState.biz,
                 }
             );
-            toast.success('Registration Successful');
+            toast.success('Registration Successful!');
             navigate(ROUTES.LOGIN);
         } catch (err) {
             console.log("Error From Axios:", err.response.data);
@@ -272,10 +272,7 @@ const RegisterPage = () => {
                                     </Alert>
                                 )}
                         </Grid>
-                        <Grid item xs={12} md={1.5} sm={1.7} lg={1}>
-                            <Avatar alt={inputState.imageAlt} src={inputState.imageUrl} />
-                        </Grid>
-                        <Grid item xs={12} md={6} sm={6}>
+                        <Grid item xs={12} sm={6}>
                             <TextField
                                 fullWidth
                                 id="imageUrl"
@@ -283,6 +280,14 @@ const RegisterPage = () => {
                                 name="imageUrl"
                                 onChange={handleInputChange}
                                 value={inputState.imageUrl}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start" >
+                                            <Avatar alt={inputState.imageAlt} src={inputState.imageUrl} />
+                                        </InputAdornment>
+                                    )
+                                }}
+
                             />
                             {
                                 showError.imageUrl && inputsErrorsState && inputsErrorsState.imageUrl && (
@@ -293,7 +298,7 @@ const RegisterPage = () => {
                                     </Alert>
                                 )}
                         </Grid>
-                        <Grid item xs={12} md={4.5} sm={4.3} lg={5}>
+                        <Grid item xs={12} sm={6}>
                             <TextField
                                 fullWidth
                                 id="imageAlt"
@@ -463,7 +468,7 @@ const RegisterPage = () => {
                     </Grid>
                 </Box>
             </Box>
-        </Container>
+        </Container >
     );
 };
 export default RegisterPage;

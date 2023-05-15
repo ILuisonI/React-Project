@@ -184,10 +184,10 @@ const CardInfoPage = () => {
                                 <Typography sx={{
                                     marginRight: "auto"
                                 }}>
-                                    {isMyCard ?
+                                    {payload && isMyCard ?
                                         (
                                             (
-                                                payload.biz &&
+                                                payload && payload.biz &&
                                                 <Fragment>
                                                     <IconButton aria-label="delete" color="error" onClick={handleDeleteBtnClick}>
                                                         <DeleteIcon />
@@ -199,7 +199,7 @@ const CardInfoPage = () => {
                                             )
                                             ||
                                             (
-                                                payload.isAdmin &&
+                                                payload && payload.isAdmin &&
                                                 <Fragment>
                                                     <IconButton aria-label="delete" color="error" onClick={handleDeleteBtnClick}>
                                                         <DeleteIcon />
@@ -212,7 +212,7 @@ const CardInfoPage = () => {
                                         )
                                         :
                                         (
-                                            payload.isAdmin &&
+                                            payload && payload.isAdmin &&
                                             <Fragment>
                                                 <IconButton aria-label="delete" color="error" onClick={handleDeleteBtnClick}>
                                                     <DeleteIcon />

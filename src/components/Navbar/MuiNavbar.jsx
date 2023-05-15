@@ -22,6 +22,8 @@ import { Link } from "react-router-dom";
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Avatar } from "@mui/material";
+import { useEffect } from "react";
+import axios from "axios";
 
 const aboutPage = {
   label: "About",
@@ -52,6 +54,8 @@ const authedPages = [
 
 const MuiNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [userIcon, setUserIcon] = React.useState(null);
+  const [userAlt, setUserAlt] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -75,9 +79,26 @@ const MuiNavbar = () => {
 
   const loggedIn = useLoggedIn();
 
+  useEffect(() => {
+    if (!payload) {
+      return;
+    }
+    (async () => {
+      try {
+        const user = await axios.get("/users/userInfo/");
+        setUserIcon(user.data.imageUrl);
+        setUserAlt(user.data.imageAlt);
+      } catch (err) {
+        console.log("Error", err.message);
+      }
+    })();
+  }, [payload]);
+
   const logoutClick = () => {
     localStorage.clear();
     loggedIn();
+    setUserIcon(null);
+    setUserAlt(null);
     toast.success('Logout Successful');
   };
 
@@ -141,8 +162,8 @@ const MuiNavbar = () => {
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {
               isLoggedIn ?
-                <Typography sx={{ textDecoration: 'none' }} component={Link} color="textPrimary" to={ROUTES.PROFILE} variant="h6" noWrap>
-                  <Avatar alt={payload.imageAlt} src={payload.imageUrl} />
+                <Typography sx={{ textDecoration: 'none' }} component={Link} color="textPrimary" to={ROUTES.PROFILE} noWrap>
+                  <Avatar alt={userAlt} src={userIcon} />
                 </Typography>
                 :
                 notAuthPages.map((page) => (

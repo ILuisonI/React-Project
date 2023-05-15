@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import validateLoginSchema from "../validation/loginValidation";
 import { Alert } from "@mui/material/";
 import { Link, useNavigate } from "react-router-dom";
@@ -34,6 +34,11 @@ const LoginPage = () => {
     const navigate = useNavigate();
 
     const loggedIn = useLoggedIn();
+
+    useEffect(() => {
+        loggedIn();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleBtnClick = async (ev) => {
         ev.preventDefault();
