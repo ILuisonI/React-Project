@@ -28,6 +28,8 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
+document.title = "Yes";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
