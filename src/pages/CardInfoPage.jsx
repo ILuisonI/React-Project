@@ -60,11 +60,11 @@ const CardInfoPage = () => {
                 }
                 setCard(newCard);
             } catch (err) {
-                console.log("Error From Axios:", err.response.message);
+                console.log("Error From Axios:", err.message);
             }
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id, card]);
+    }, [id]);
 
     useEffect(() => {
         if (payload) {
@@ -73,13 +73,13 @@ const CardInfoPage = () => {
         }
     }, [card, payload, isMyCard]);
 
-    const handleDeleteBtnClick = async (id) => {
+    const handleDeleteBtnClick = async () => {
         try {
             await axios.delete("cards/" + id);
             toast.success('Card Deleted!');
             navigate(ROUTES.HOME);
         } catch (err) {
-            console.log("Error When Deleting:", err.response.data);
+            console.log("Delete Error:", err.message);
             toast.error('Oops');
         }
     };
@@ -92,7 +92,7 @@ const CardInfoPage = () => {
         try {
             await axios.patch(`/cards/card-like/${id}`)
         } catch (err) {
-            console.log("Error", err.response.data);
+            console.log("Error", err.message);
         }
     };
 

@@ -99,6 +99,7 @@ const CreateCardPage = () => {
             }
         } catch (err) {
             toast.error('Oops');
+            console.log("Error From Axios:", err.message);
         }
     };
 

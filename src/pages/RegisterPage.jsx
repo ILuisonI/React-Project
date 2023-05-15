@@ -108,7 +108,7 @@ const RegisterPage = () => {
             toast.success('Registration Successful!');
             navigate(ROUTES.LOGIN);
         } catch (err) {
-            console.log("Error From Axios:", err.response.data);
+            console.log("Error From Axios:", err.message);
         }
     };
 

@@ -55,7 +55,7 @@ const LoginPage = () => {
             navigate(ROUTES.HOME);
         } catch (err) {
             toast.error('Username And/Or Password Are Incorrect!');
-            console.log("Login Error", err.response.data);
+            console.log("Login Error", err.message);
         }
     };
 

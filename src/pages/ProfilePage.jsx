@@ -82,7 +82,7 @@ const ProfilePage = () => {
                 delete newInputState._id;
                 setInputState(newInputState);
             } catch (err) {
-                console.log("Error From Axios:", err.response.message);
+                console.log("Error From Axios:", err.message);
             }
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -117,7 +117,7 @@ const ProfilePage = () => {
                 biz: inputState.biz,
             });
         } catch (err) {
-            console.log("Error From Axios:", err.response.data);
+            console.log("Error From Axios:", err.message);
         }
         localStorage.clear();
         toast.success('Profile Edited Successfully!');
