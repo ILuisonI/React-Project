@@ -48,23 +48,13 @@ const CardInfoPage = () => {
                 let newCard = { ...data };
                 newCard.url = newCard.image.url;
                 newCard.alt = newCard.image.alt;
-                delete newCard.image;
-                if (!newCard.state) {
-                    newCard.state = "";
-                }
-                if (!newCard.zipCode) {
-                    newCard.zipCode = "";
-                }
-                if (!newCard.web) {
-                    newCard.web = "";
-                }
                 setCard(newCard);
             } catch (err) {
                 console.log("Error From Axios:", err.message);
             }
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id]);
+    }, [id, isLiked]);
 
     useEffect(() => {
         if (payload) {
@@ -126,9 +116,15 @@ const CardInfoPage = () => {
                     <Grid item xs={3}>
                         <Card sx={{ maxWidth: 345 }}>
                             {/* <CardActionArea> */}
-                            <CardHeader title={card.title} subheader={card.subTitle} />
+                            <CardHeader title={card.title} subheader={"Created At: " + card.createdAt.split("T").join(" ").split(".")[0]} />
                             <CardMedia component="img" image={card.url} alt={card.alt} />
                             <CardContent>
+                                <Typography variant="h6" color="text.primary">
+                                    <b>Subtitle: </b>
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    {card.subTitle}
+                                </Typography>
                                 <Typography variant="h6" color="text.primary">
                                     <b>Phone: </b>
                                 </Typography>
