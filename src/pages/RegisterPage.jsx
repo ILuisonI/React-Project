@@ -55,7 +55,7 @@ const RegisterPage = () => {
         biz: false,
     });
 
-    const [showError, setShowError] = useState({
+    const [showErrors, setShowErrors] = useState({
         firstName: false,
         lastName: false,
         phone: false,
@@ -115,15 +115,18 @@ const RegisterPage = () => {
         }
     };
 
+    useEffect(() => {
+        const joiResponse = validateRegisterSchema(inputState);
+        setInputsErrorsState(joiResponse);
+    }, [inputState]);
+
     const handleInputChange = (ev) => {
         let newInputState = JSON.parse(JSON.stringify(inputState));
         newInputState[ev.target.id] = ev.target.value;
         setInputState(newInputState);
-        const joiResponse = validateRegisterSchema(newInputState);
-        setInputsErrorsState(joiResponse);
-        let newShowError = JSON.parse(JSON.stringify(showError));
-        newShowError[ev.target.id] = true;
-        setShowError(newShowError);
+        let newShowErrors = JSON.parse(JSON.stringify(showErrors));
+        newShowErrors[ev.target.id] = true;
+        setShowErrors(newShowErrors);
     };
 
     const handleCheckedChange = (ev) => {
@@ -133,7 +136,7 @@ const RegisterPage = () => {
     };
 
     const resetAll = () => {
-        setShowError({ ...false });
+        setShowErrors({ ...false });
         setInputState(resetInputState);
         setInputsErrorsState(null);
     };
@@ -171,7 +174,7 @@ const RegisterPage = () => {
                                 value={inputState.firstName}
                             />
                             {
-                                showError.firstName && inputsErrorsState && inputsErrorsState.firstName && (
+                                showErrors.firstName && inputsErrorsState && inputsErrorsState.firstName && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.firstName.map(item =>
                                             <div key={"firstname-errors" + item}>{item}.</div>
@@ -190,7 +193,7 @@ const RegisterPage = () => {
                                 value={inputState.middleName}
                             />
                             {
-                                showError.middleName && inputsErrorsState && inputsErrorsState.middleName && (
+                                showErrors.middleName && inputsErrorsState && inputsErrorsState.middleName && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.middleName.map(item =>
                                             <div key={"middlename-errors" + item}>{item}.</div>
@@ -209,7 +212,7 @@ const RegisterPage = () => {
                                 value={inputState.lastName}
                             />
                             {
-                                showError.lastName && inputsErrorsState && inputsErrorsState.lastName && (
+                                showErrors.lastName && inputsErrorsState && inputsErrorsState.lastName && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.lastName.map(item =>
                                             <div key={"lastname-errors" + item}>{item}.</div>
@@ -228,7 +231,7 @@ const RegisterPage = () => {
                                 value={inputState.phone}
                             />
                             {
-                                showError.phone && inputsErrorsState && inputsErrorsState.phone && (
+                                showErrors.phone && inputsErrorsState && inputsErrorsState.phone && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.phone.map(item =>
                                             <div key={"lastname-errors" + item}>{item}.</div>
@@ -247,7 +250,7 @@ const RegisterPage = () => {
                                 value={inputState.email}
                             />
                             {
-                                showError.email && inputsErrorsState && inputsErrorsState.email && (
+                                showErrors.email && inputsErrorsState && inputsErrorsState.email && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.email.map(item =>
                                             <div key={"email-errors" + item}>{item}.</div>
@@ -267,7 +270,7 @@ const RegisterPage = () => {
                                 value={inputState.password}
                             />
                             {
-                                showError.password && inputsErrorsState && inputsErrorsState.password && (
+                                showErrors.password && inputsErrorsState && inputsErrorsState.password && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.password.map(item =>
                                             <div key={"password-errors" + item}>{item}.</div>
@@ -293,7 +296,7 @@ const RegisterPage = () => {
 
                             />
                             {
-                                showError.imageUrl && inputsErrorsState && inputsErrorsState.imageUrl && (
+                                showErrors.imageUrl && inputsErrorsState && inputsErrorsState.imageUrl && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.imageUrl.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>
@@ -311,7 +314,7 @@ const RegisterPage = () => {
                                 value={inputState.imageAlt}
                             />
                             {
-                                showError.imageAlt && inputsErrorsState && inputsErrorsState.imageAlt && (
+                                showErrors.imageAlt && inputsErrorsState && inputsErrorsState.imageAlt && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.imageAlt.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>
@@ -329,7 +332,7 @@ const RegisterPage = () => {
                                 value={inputState.state}
                             />
                             {
-                                showError.state && inputsErrorsState && inputsErrorsState.state && (
+                                showErrors.state && inputsErrorsState && inputsErrorsState.state && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.state.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>
@@ -348,7 +351,7 @@ const RegisterPage = () => {
                                 value={inputState.country}
                             />
                             {
-                                showError.country && inputsErrorsState && inputsErrorsState.country && (
+                                showErrors.country && inputsErrorsState && inputsErrorsState.country && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.country.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>
@@ -367,7 +370,7 @@ const RegisterPage = () => {
                                 value={inputState.city}
                             />
                             {
-                                showError.city && inputsErrorsState && inputsErrorsState.city && (
+                                showErrors.city && inputsErrorsState && inputsErrorsState.city && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.city.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>
@@ -386,7 +389,7 @@ const RegisterPage = () => {
                                 value={inputState.street}
                             />
                             {
-                                showError.street && inputsErrorsState && inputsErrorsState.street && (
+                                showErrors.street && inputsErrorsState && inputsErrorsState.street && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.street.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>
@@ -405,7 +408,7 @@ const RegisterPage = () => {
                                 value={inputState.houseNumber}
                             />
                             {
-                                showError.houseNumber && inputsErrorsState && inputsErrorsState.houseNumber && (
+                                showErrors.houseNumber && inputsErrorsState && inputsErrorsState.houseNumber && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.houseNumber.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>
@@ -423,7 +426,7 @@ const RegisterPage = () => {
                                 value={inputState.zipCode}
                             />
                             {
-                                showError.zipCode && inputsErrorsState && inputsErrorsState.zipCode && (
+                                showErrors.zipCode && inputsErrorsState && inputsErrorsState.zipCode && (
                                     <Alert severity="warning">
                                         {inputsErrorsState.zipCode.map(item =>
                                             <div key={"imageUrl-errors" + item}>{item}.</div>

@@ -109,12 +109,15 @@ const CreateCardPage = () => {
         setInputsErrorsState(null);
     };
 
+    useEffect(() => {
+        const joiResponse = validateCardSchema(inputState);
+        setInputsErrorsState(joiResponse);
+    }, [inputState]);
+
     const handleInputChange = (ev) => {
         let newInputState = JSON.parse(JSON.stringify(inputState));
         newInputState[ev.target.id] = ev.target.value;
         setInputState(newInputState);
-        const joiResponse = validateCardSchema(inputState);
-        setInputsErrorsState(joiResponse);
         let newShowErrors = JSON.parse(JSON.stringify(showErrors));
         newShowErrors[ev.target.id] = true;
         setShowError(newShowErrors);

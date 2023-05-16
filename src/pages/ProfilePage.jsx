@@ -123,12 +123,15 @@ const ProfilePage = () => {
         navigate(ROUTES.LOGIN);
     };
 
+    useEffect(() => {
+        const joiResponse = validateProfileSchema(inputState);
+        setInputsErrorsState(joiResponse);
+    }, [inputState]);
+
     const handleInputChange = (ev) => {
         let newInputState = JSON.parse(JSON.stringify(inputState));
         newInputState[ev.target.id] = ev.target.value;
         setInputState(newInputState);
-        const joiResponse = validateProfileSchema(newInputState);
-        setInputsErrorsState(joiResponse);
         let newShowError = JSON.parse(JSON.stringify(showError));
         newShowError[ev.target.id] = true;
         setShowError(newShowError);

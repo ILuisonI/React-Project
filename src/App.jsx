@@ -74,7 +74,7 @@ function App() {
         </main>
         <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
           <BottomNavigation showLabels>
-            <BottomNavigationAction component={Link} to={ROUTES.PROFILE} label="About" icon={<InfoIcon />} />
+            <BottomNavigationAction component={Link} to={ROUTES.ABOUT} label="About" icon={<InfoIcon />} />
             {
               isLoggedIn &&
               <BottomNavigationAction component={Link} to={ROUTES.FAVCARDS} label="Favorite Cards" icon={<FavoriteIcon />} />
