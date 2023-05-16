@@ -119,7 +119,7 @@ const MuiNavbar = () => {
             <NavLinkComponent {...aboutPage} />
             {
               isAdmin &&
-              <NavLinkComponent key={"linkSandbox"} label={"Sandbox"} url={"/error"} />
+              <NavLinkComponent key={"linkSandbox"} label={"Sandbox"} url={ROUTES.SANDBOX} />
             }
             {
               isBiz &&
@@ -218,8 +218,8 @@ const MuiNavbar = () => {
                     p: 2,
                     display: { xs: "block", md: "none" },
                   }}>
-                    <Typography sx={{ textDecoration: 'none' }} component={Link} color="textPrimary" to={ROUTES.PROFILE} variant="h6" noWrap>
-                      <Avatar alt={payload.imageAlt} src={payload.imageUrl} />
+                    <Typography sx={{ textDecoration: 'none' }} component={Link} color="textPrimary" to={ROUTES.PROFILE} noWrap>
+                      <Avatar alt={userAlt} src={userIcon} />
                     </Typography>
                   </Box>
                 </MenuItem>

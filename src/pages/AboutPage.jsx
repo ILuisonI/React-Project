@@ -62,6 +62,17 @@ const AboutPage = () => {
             <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/CardInfo.png" />
             <h4>This is the card info page where you can see all the business information.</h4>
             <hr />
+            <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/Sandbox.png" />
+            <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/ReRender.png" />
+            <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/UseMemo.png" />
+            <h4>This is the sandbox page where you can choose ReRender nested route or UseMemo nested route.
+                <br />In the ReRender page you have a Toggle Active which changes the "Partial that should be changed" from red to blue and from blue to red.
+                <br />The Clear Text button clears the text in the input field.
+                <br />The "this button should not be changed" will stay the same.
+                <br />In the UseMemo page, clicking the Add button will add 20000 to the counter, and every click will reach 20000 faster than before.
+                <br />You can type anything in the text box and it won't rerender if you click Add.
+            </h4>
+            <hr />
         </Box>
     );
 };

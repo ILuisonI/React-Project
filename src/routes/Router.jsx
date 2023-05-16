@@ -13,6 +13,9 @@ import CreateCardPage from "../pages/CreateCardPage";
 import CardInfoPage from "../pages/CardInfoPage";
 import AboutPage from "../pages/AboutPage";
 import CallingPage from "../pages/CallingPage";
+import ReRenderPage from "../pages/ReRenderPages/ReRenderPage";
+import SanboxPage from "../pages/SandboxPage";
+import UseMemoPage from "../pages/ReRenderPages/UseMemoPage";
 
 const Router = () => {
     return (
@@ -43,6 +46,14 @@ const Router = () => {
                 needPermission={true}
                 isBiz={true}
                 element={<CreateCardPage />} />} />
+            <Route path={ROUTES.SANDBOX} element={
+                <SuperProtectedRoute
+                    needPermission={true}
+                    isAdmin={true}
+                    element={<SanboxPage />} />}>
+                <Route path={ROUTES.RERENDER} element={<ReRenderPage />} />
+                <Route path={ROUTES.USEMEMO} element={<UseMemoPage />} />
+            </Route>
             <Route path={ROUTES.LOGOUT} element={<SuperProtectedRoute
                 needPermission={false}
                 logout={true}
