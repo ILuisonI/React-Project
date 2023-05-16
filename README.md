@@ -46,8 +46,7 @@
 * You can search any card using the search form in the navigation bar depending on which page you are in.
 * In the CRM page you search users instead.
 
-`As an admin you can access the CRM page where you can view all users, delete users (unless they are an admin) and make/unmake users as business accounts.`
-
 # CRM Page:
+* As an admin you can access the CRM page where you can view all users, delete users (unless they are an admin) and make/unmake users as business accounts.
 * In this page you can view all the users, delete them (unless they are an admin) and make/unmake users as business accounts.
 * Clicking on a user will take you to the user page with all the information about him, and do all the actions in the CRM with the same ruling.
