@@ -73,6 +73,21 @@ const AboutPage = () => {
                 <br />You can type anything in the text box and it won't rerender if you click Add.
             </h4>
             <hr />
+            <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/Users.png" />
+            <h4>This is the CRM page where you can see all the users and it can only be accessed by admins.
+                <br />You can delete non-admin users.
+                <br />Admin users cannot be deleted and you will see "Admin" instead of a delete button
+                <br />You can change any user's business status by clicking the "Business Account" check button.
+                <br />By clicking on a user card you will go to the user information page.
+            </h4>
+            <hr />
+            <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/UserInfo.png" />
+            <h4>This is the user info page where you can see all the information about the user, and it can only be accessed by admins.
+                <br />You can delete non-admin users.
+                <br />Admin users cannot be deleted and you will see "Admin" instead of a delete button
+                <br />You can change any user's business status by clicking the "Business Account" check button.
+            </h4>
+            <hr />
         </Box>
     );
 };

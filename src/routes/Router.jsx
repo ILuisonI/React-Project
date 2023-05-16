@@ -16,6 +16,8 @@ import CallingPage from "../pages/CallingPage";
 import ReRenderPage from "../pages/ReRenderPages/ReRenderPage";
 import SanboxPage from "../pages/SandboxPage";
 import UseMemoPage from "../pages/ReRenderPages/UseMemoPage";
+import CRMPage from "../pages/CRMPage";
+import UserInfoPage from "../pages/UserInfoPage";
 
 const Router = () => {
     return (
@@ -27,6 +29,10 @@ const Router = () => {
             <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
             <Route path={ROUTES.CARDINFO} element={<CardInfoPage />} />
+            <Route path={ROUTES.USERINFO} element={<SuperProtectedRoute
+                needPermission={true}
+                isAdmin={true}
+                element={<UserInfoPage />} />} />
             <Route path={ROUTES.EDIT} element={<SuperProtectedRoute
                 needPermission={true}
                 isAdmin={true}
@@ -46,6 +52,10 @@ const Router = () => {
                 needPermission={true}
                 isBiz={true}
                 element={<CreateCardPage />} />} />
+            <Route path={ROUTES.CRM} element={<SuperProtectedRoute
+                needPermission={true}
+                isAdmin={true}
+                element={<CRMPage />} />} />
             <Route path={ROUTES.SANDBOX} element={
                 <SuperProtectedRoute
                     needPermission={true}

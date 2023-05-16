@@ -79,14 +79,15 @@ const HomePage = () => {
   }
 
   return (
-    <Box>
+    <Box margin={"auto"}>
       <h1>Cards Page</h1>
       <h3>Here you can find all the business cards</h3>
       <hr />
       <Grid container
         spacing={2}
         alignItems="center"
-        justify="center">
+        justify="center"
+        margin={"auto"}>
         {cardsArr.map((item) => (
           <Grid item xs={12} sm={6} lg={4} md={6} key={item._id + Date.now()} >
             <CardComponent

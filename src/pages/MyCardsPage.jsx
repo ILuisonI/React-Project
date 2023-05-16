@@ -86,7 +86,11 @@ const MyCardsPage = () => {
             <h1>My Cards Page</h1>
             <h3>Here you can find all of your business cards</h3>
             <hr />
-            <Grid container spacing={2}>
+            <Grid container
+                spacing={2}
+                alignItems="center"
+                justify="center"
+                margin={"auto"}>
                 {cardsArr.map((item) => (
                     <Grid item xs={12} sm={6} lg={4} md={6} key={item._id + Date.now()} >
                         <CardComponent

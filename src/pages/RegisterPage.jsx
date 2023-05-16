@@ -73,6 +73,8 @@ const RegisterPage = () => {
 
     const navigate = useNavigate();
 
+    const defImg = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+
     useEffect(() => {
         const joiResponse = validateRegisterSchema(inputState);
         setInputsErrorsState(joiResponse);
@@ -85,6 +87,7 @@ const RegisterPage = () => {
 
     const handleBtnClick = async () => {
         try {
+            console.log(inputState.biz);
             await axios.post(
                 "/users/register",
                 {
@@ -94,8 +97,8 @@ const RegisterPage = () => {
                     phone: inputState.phone,
                     email: inputState.email,
                     password: inputState.password,
-                    imageUrl: inputState.imageUrl,
-                    imageAlt: inputState.imageAlt,
+                    imageUrl: inputState.imageUrl ? inputState.imageUrl : defImg,
+                    imageAlt: inputState.imageAlt ? inputState.imageAlt : "No Image",
                     state: inputState.state,
                     country: inputState.country,
                     city: inputState.city,

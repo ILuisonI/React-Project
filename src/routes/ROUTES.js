@@ -14,6 +14,8 @@ const ROUTES = {
     SANDBOX: "/sandbox",
     RERENDER: "rerender",
     USEMEMO: "usememo",
+    CRM: "/crm",
+    USERINFO: "/userinfo/:id",
     LOGOUT: "/logout",
 };
 
