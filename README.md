@@ -1,8 +1,8 @@
 # Home Page:
-..* Clicking on a business card will move you to the business card page with all the information about it.
-..* If you are logged in you can like any business card.
-..* If you are a business account you can create cards, edit or delete them (only cards that you created).
-..* If you are an admin you can create cards and edit them (only cards that you created), and you can delete any card.
+* Clicking on a business card will move you to the business card page with all the information about it.
+* If you are logged in you can like any business card.
+* If you are a business account you can create cards, edit or delete them (only cards that you created).
+* If you are an admin you can create cards and edit them (only cards that you created), and you can delete any card.
 
 # About Page:
 In this page everything about the website is explained.
