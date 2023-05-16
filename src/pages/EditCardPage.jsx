@@ -172,7 +172,7 @@ const EditCardPage = () => {
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={12} md={6}>
                                 <TextField
                                     fullWidth
                                     id="url"
@@ -191,7 +191,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     fullWidth
                                     id="alt"
@@ -210,7 +210,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -230,7 +230,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -250,7 +250,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -270,7 +270,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     fullWidth
                                     id="state"
@@ -289,7 +289,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -309,7 +309,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -329,7 +329,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -349,7 +349,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -369,7 +369,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     fullWidth
                                     id="zipCode"
@@ -389,7 +389,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -409,7 +409,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     required
                                     fullWidth
@@ -429,7 +429,7 @@ const EditCardPage = () => {
                                         </Alert>
                                     )}
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
                                     fullWidth
                                     id="web"
