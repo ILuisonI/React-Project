@@ -1,5 +1,6 @@
 # Home Page:
 * Clicking on a business card will move you to the business card page with all the information about it.
+* If you click on the phone button you will be moved to the calling page where you will get "Calling" and the business phone number.
 * If you are logged in you can like any business card.
 * If you are a business account you can create cards, edit or delete them (only cards that you created).
 * If you are an admin you can create cards and edit them (only cards that you created), and you can delete any card.
