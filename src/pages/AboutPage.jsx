@@ -60,7 +60,10 @@ const AboutPage = () => {
             <h4>This is the profile page where you can update your information.</h4>
             <hr />
             <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/CardInfo.png" />
-            <h4>This is the card info page where you can see all the business information.</h4>
+            <h4>This is the card info page where you can see all the business information.
+                <br />An admin can change the business number of the current card.
+                <br />The Change Business Number button won't show up if you are not an admin.
+            </h4>
             <hr />
             <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/Sandbox.png" />
             <Typography width={"100%"} border={5} color={"#ccc"} component={"img"} src="/images/ReRender.png" />

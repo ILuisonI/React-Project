@@ -52,8 +52,6 @@ const ProfilePage = () => {
 
     const [btnDisabled, setBtnDisabled] = useState(true);
 
-    const [id, setId] = useState(null);
-
     const navigate = useNavigate();
 
     const payload = useSelector((bigPie) => bigPie.authSlice.payload);
@@ -78,7 +76,6 @@ const ProfilePage = () => {
                 }
                 delete newInputState.password;
                 delete newInputState.isAdmin;
-                setId(newInputState._id);
                 delete newInputState._id;
                 setInputState(newInputState);
             } catch (err) {
@@ -100,7 +97,7 @@ const ProfilePage = () => {
 
     const handleBtnClick = async () => {
         try {
-            await axios.put(`users/userInfo/${id}`, {
+            await axios.put("users/userInfo/", {
                 firstName: inputState.firstName,
                 middleName: inputState.middleName,
                 lastName: inputState.lastName,
@@ -113,6 +110,7 @@ const ProfilePage = () => {
                 city: inputState.city,
                 street: inputState.street,
                 houseNumber: inputState.houseNumber,
+                //server won't allow empty zipCode so I made the default value to be 1
                 zipCode: inputState.zipCode ? inputState.zipCode : 1,
                 biz: inputState.biz,
             });

@@ -128,7 +128,7 @@ const UserInfoPage = () => {
                     <Grid item xs={3}>
                         <Card sx={{ maxWidth: 345 }}>
                             {/* <CardActionArea> */}
-                            <CardHeader title={user.firstName + " " + user.middleName} subheader={user.lastName} />
+                            <CardHeader title={user.firstName + " " + user.middleName + " " + user.lastName} />
                             <CardMedia component="img" image={user.imageUrl} alt={user.imageAlt} />
                             <CardContent>
                                 <Typography variant="h6" color="text.primary">

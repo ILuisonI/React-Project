@@ -87,7 +87,6 @@ const RegisterPage = () => {
 
     const handleBtnClick = async () => {
         try {
-            console.log(inputState.biz);
             await axios.post(
                 "/users/register",
                 {
@@ -104,6 +103,7 @@ const RegisterPage = () => {
                     city: inputState.city,
                     street: inputState.street,
                     houseNumber: inputState.houseNumber,
+                    //server won't allow empty zipCode so I made the default value to be 1
                     zipCode: inputState.zipCode ? inputState.zipCode : 1,
                     biz: inputState.biz,
                 }
