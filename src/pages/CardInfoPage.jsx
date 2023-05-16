@@ -153,7 +153,7 @@ const CardInfoPage = () => {
                                     <b>Address: </b>
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    {card.state && card.state + ", "}{card.country + ", " + card.city + ", " + card.street + ", " + card.houseNumber}{", " + card.zipCode && card.zipCode}
+                                    {card.state && card.state + ", "}{card.country}{", " + card.state && card.state}{", " + card.city + ", " + card.street + ", " + card.houseNumber}{", " + card.zipCode && card.zipCode}
                                 </Typography>
                                 <Typography variant="h6" color="text.primary">
                                     <b>Business Number: </b>

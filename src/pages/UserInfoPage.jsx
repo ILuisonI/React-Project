@@ -147,7 +147,7 @@ const UserInfoPage = () => {
                                     <b>Address: </b>
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    {user.state && user.state + ", "}{user.country + ", " + user.city + ", " + user.street + ", " + user.houseNumber}{", " + user.zipCode && user.zipCode}
+                                    {user.country}{", " + user.state && user.state}{" ," + user.city + ", " + user.street + ", " + user.houseNumber}{", " + user.zipCode && user.zipCode}
                                 </Typography>
                             </CardContent>
                             {/* </CardActionArea> */}

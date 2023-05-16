@@ -73,7 +73,7 @@ const CardComponent = ({ card, onDelete, onEdit, isAdmin, isBiz, likeCard }) => 
               <b>Phone: </b>{card.phone}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              <b>Address: </b>{card.state && card.state + ", "}{card.country + ", " + card.city + ", " + card.street + ", " + card.houseNumber}{", " + card.zipCode && card.zipCode}
+              <b>Address: </b>{card.state && card.state + ", "}{card.country}{", " + card.state && card.state}{", " + card.city + ", " + card.street + ", " + card.houseNumber}{", " + card.zipCode && card.zipCode}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               <b>Business Number: </b>{card.bizNumber}
